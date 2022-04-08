@@ -16,7 +16,19 @@ describe("string calculator tests", () => {
     expect(calculator("1,2\n3\n4,5\n6")).toBe(21);
   });
 
-  test('should be able to handle newlines between inputs2', () => {
+  test('should return error message', () => {
     expect(calculator("1,\n")).toBe("invalid input");
+  });
+
+  test('should support custom delimiter ;', () => {
+    expect(calculator("//;\n1;2;3")).toBe(6);
+  });
+
+  test('should support custom delimiter -', () => {
+    expect(calculator("//-\n1-2-3")).toBe(6);
+  });
+
+  test('should support custom delimiter --', () => {
+    expect(calculator("//--\n1--2--3")).toBe(6);
   });
 })
