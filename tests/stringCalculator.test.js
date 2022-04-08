@@ -15,4 +15,8 @@ describe("string calculator tests", () => {
   test('should be able to handle newlines between inputs', () => {
     expect(calculator("1,2\n3\n4,5\n6")).toBe(21);
   });
+
+  test('should be able to handle newlines between inputs2', () => {
+    expect(calculator("1,\n")).toBe("invalid input");
+  });
 })

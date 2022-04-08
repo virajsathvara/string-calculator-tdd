@@ -8,5 +8,6 @@ module.exports = function stringCalculator (numbers) {
   for (let i of argArray) {
     total += parseInt(i)
   }
+  if (Number.isNaN(total)) return 'invalid input'
   return total
 }
