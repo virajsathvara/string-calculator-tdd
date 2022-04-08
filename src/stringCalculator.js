@@ -3,21 +3,21 @@ module.exports = function stringCalculator (numbers) {
 
   let splitRule = /[\n, ]+/g
   let inputs = numbers
+
   if (numbers.startsWith('//')) {
-    const delimiter = numbers.substring(2, numbers.indexOf('\n'))
-    console.log('new delimiter found: ', delimiter);
-    splitRule = delimiter
+    splitRule = numbers.substring(2, numbers.indexOf('\n'))
     inputs = numbers.substring(numbers.indexOf('\n') + 1, numbers.length)
-    console.log('inputs are: ', inputs);
   }
+
   const argArray = inputs.split(splitRule)
-  console.log('array is: ', argArray);
   if (argArray.length === 1) return parseInt(argArray[0])
 
   let total = 0
   for (let i of argArray) {
+    if (parseInt(i) < 0) return 'negatives not allowed'
     total += parseInt(i)
   }
+
   if (Number.isNaN(total)) return 'invalid input'
   return total
 }

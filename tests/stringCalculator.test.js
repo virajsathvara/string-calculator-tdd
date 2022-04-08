@@ -31,4 +31,8 @@ describe("string calculator tests", () => {
   test('should support custom delimiter --', () => {
     expect(calculator("//--\n1--2--3")).toBe(6);
   });
+
+  test('should return negatives not allowed', () => {
+    expect(calculator("1,-2,3")).toBe('negatives not allowed');
+  });
 })
