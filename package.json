@@ -1,0 +1,23 @@
+{
+  "name": "string-calculator-tdd",
+  "version": "1.0.0",
+  "description": "TDD code challenge as per https://osherove.com/tdd-kata-1/",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virajsathvara/string-calculator-tdd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/virajsathvara/string-calculator-tdd/issues"
+  },
+  "homepage": "https://github.com/virajsathvara/string-calculator-tdd#readme"
+}
