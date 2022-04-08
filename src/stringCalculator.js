@@ -1,6 +1,6 @@
 module.exports = function stringCalculator (numbers) {
   if (numbers === "") return 0
-  const argArray = numbers.split(",")
+  const argArray = numbers.split(/[\n, ]+/g)
   console.log('array is: ', argArray);
   if (argArray.length === 1) return parseInt(argArray[0])
 
