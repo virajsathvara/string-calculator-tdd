@@ -14,7 +14,7 @@ module.exports = function stringCalculator (numbers) {
 
   let total = 0
   for (let i of argArray) {
-    if (parseInt(i) < 0) return 'negatives not allowed'
+    if (parseInt(i) < 0) throw new Error('negatives not allowed')
     total += parseInt(i)
   }
 

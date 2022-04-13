@@ -33,6 +33,10 @@ describe("string calculator tests", () => {
   });
 
   test('should return negatives not allowed', () => {
-    expect(calculator("1,-2,3")).toBe('negatives not allowed');
+    try {
+      calculator("1,-2,3")
+    } catch (error) {
+      expect(error).toHaveProperty('message', 'negatives not allowed');
+    }
   });
 })
