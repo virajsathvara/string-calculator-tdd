@@ -47,4 +47,8 @@ describe("string calculator tests", () => {
       expect(error).toHaveProperty('message', 'negatives not allowed: -2,-4');
     }
   });
+
+  test('should do multiplication when delimiter is *', () => {
+    expect(calculator("//*\n3*3")).toBe(9);
+  });
 })

@@ -12,17 +12,26 @@ module.exports = function stringCalculator (numbers) {
   const argArray = inputs.split(splitRule)
   if (argArray.length === 1) return parseInt(argArray[0])
 
-  let total = 0
-  let nagativeNumbers = []
-  for (let i of argArray) {
-    if (parseInt(i) < 0) {
-      nagativeNumbers.push(i)
-    }
-    total += parseInt(i)
-  }
+  const { total, nagativeNumbers } = calculateNumbers(splitRule, argArray)
 
   if (nagativeNumbers.length > 0)
     throw new Error('negatives not allowed: ' + nagativeNumbers.toString())
   if (Number.isNaN(total)) return 'invalid input'
   return total
+}
+
+const calculateNumbers = (delimeter, arr) => {
+  let total = (delimeter === '*') ? 1 : 0
+  let nagativeNumbers = []
+
+  for (let i of arr) {
+    if (parseInt(i) < 0) {
+      nagativeNumbers.push(i)
+    }
+    total = (delimeter === '*') ? total * parseInt(i) : total + parseInt(i)
+  }
+  return {
+    total,
+    nagativeNumbers
+  }
 }
