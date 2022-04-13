@@ -13,11 +13,16 @@ module.exports = function stringCalculator (numbers) {
   if (argArray.length === 1) return parseInt(argArray[0])
 
   let total = 0
+  let nagativeNumbers = []
   for (let i of argArray) {
-    if (parseInt(i) < 0) throw new Error('negatives not allowed')
+    if (parseInt(i) < 0) {
+      nagativeNumbers.push(i)
+    }
     total += parseInt(i)
   }
 
+  if (nagativeNumbers.length > 0)
+    throw new Error('negatives not allowed: ' + nagativeNumbers.toString())
   if (Number.isNaN(total)) return 'invalid input'
   return total
 }

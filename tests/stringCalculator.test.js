@@ -36,7 +36,15 @@ describe("string calculator tests", () => {
     try {
       calculator("1,-2,3")
     } catch (error) {
-      expect(error).toHaveProperty('message', 'negatives not allowed');
+      expect(error).toHaveProperty('message', 'negatives not allowed: -2');
+    }
+  });
+
+  test('should throw error with nagative numbers', () => {
+    try {
+      calculator("1,-2,3,-4")
+    } catch (error) {
+      expect(error).toHaveProperty('message', 'negatives not allowed: -2,-4');
     }
   });
 })
